@@ -10,7 +10,6 @@ package mx.uttt.majori.VO;
  * @author Jose&
  */
 public class ClienteVO {
-
     private int IDCliente;
     private String Nombre;
     private String Apellidos;
