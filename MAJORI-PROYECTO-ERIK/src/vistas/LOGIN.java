@@ -4,17 +4,15 @@
  * and open the template in the editor.
  */
 package vistas;
-
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import sun.security.util.Password;
-
+//import sun.security.util.Password;
+//import javax.swing.ImageIcon;
 /**
  *
- * @author MAJORI
+ * @author jesus
  */
 public class LOGIN extends javax.swing.JFrame {
 
@@ -23,13 +21,6 @@ public class LOGIN extends javax.swing.JFrame {
      */
     public LOGIN() {
         initComponents();
-        
-           ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon(this.getClass().getResource("fondo2.jpg"));
-        JLabel fondo= new JLabel();
-        fondo.setIcon(uno);
-        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
     }
 
     /**
@@ -42,13 +33,13 @@ public class LOGIN extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem2 = new javax.swing.JMenuItem();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         USUARIO = new javax.swing.JTextField();
         Contraseña = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -56,11 +47,8 @@ public class LOGIN extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 51));
         getContentPane().setLayout(null);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/contraseña.png"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(230, 170, 70, 30);
 
         jLabel1.setFont(new java.awt.Font("Agency FB", 1, 50)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,13 +60,13 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USUARIO: ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 60, 90, 29);
+        jLabel2.setBounds(120, 70, 90, 29);
 
         jLabel3.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CONTRASEÑA: ");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(100, 130, 120, 29);
+        jLabel3.setBounds(100, 170, 120, 29);
 
         USUARIO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +74,7 @@ public class LOGIN extends javax.swing.JFrame {
             }
         });
         getContentPane().add(USUARIO);
-        USUARIO.setBounds(90, 100, 140, 20);
+        USUARIO.setBounds(80, 120, 150, 30);
 
         Contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,10 +82,9 @@ public class LOGIN extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Contraseña);
-        Contraseña.setBounds(100, 170, 130, 20);
+        Contraseña.setBounds(90, 220, 130, 30);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/entrar.png"))); // NOI18N
         jButton1.setText("INICIAR");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
@@ -112,7 +99,11 @@ public class LOGIN extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(90, 230, 110, 80);
+        jButton1.setBounds(110, 280, 90, 30);
+
+        jPanel1.setBackground(new java.awt.Color(204, 0, 204));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 330, 370);
 
         jMenu1.setText("Inicio");
 
@@ -148,20 +139,19 @@ public class LOGIN extends javax.swing.JFrame {
         String Contraseña = "1234";
         
         String Con = new String(this.Contraseña.getPassword());
-        
         if (USUARIO.getText().equals(Usuario)&& Con.equals(Contraseña)) {
-            JOptionPane.showMessageDialog(this, "Bienvenido\nSession Abierta");
+            JOptionPane.showMessageDialog(this, "Bienvenido\nSessión Abierta");
             Menu m = new Menu();
             m.setVisible(true);
             dispose();//Cierra la ventana al estar bien el comando
         }else{
-            JOptionPane.showMessageDialog(this,"Verifique su Usuario y Contraseña");
+            JOptionPane.showMessageDialog(this,"Verifica que su Usuario y Contraseña sean correctos");
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-Menu mn=new Menu();
-         mn.setVisible(true);
+        Menu mn=new Menu();
+        mn.setVisible(true);
         this.hide();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -194,6 +184,18 @@ Menu mn=new Menu();
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -210,10 +212,10 @@ Menu mn=new Menu();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
