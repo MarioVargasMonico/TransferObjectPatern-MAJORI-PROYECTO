@@ -5,7 +5,11 @@
  */
 package vistas;
 
+import Controlador.CtrlCliente;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import mx.uttt.majori.VO.ClienteVO;
 
 /**
  *
@@ -14,11 +18,39 @@ import javax.swing.table.DefaultTableModel;
 public class AgregarCliente extends javax.swing.JFrame {
     
     DefaultTableModel modelo = new  DefaultTableModel();
-    /**
-     * Creates new form AgregarCliente
-     */
+    
+      private void LlenarTabla() {
+      CtrlCliente Ctrl = new CtrlCliente();
+        ArrayList<ClienteVO> listacat = (ArrayList<ClienteVO>) (Ctrl.consultarTodo());
+        for (int i = 0; i < listacat.size(); i++) {
+            modelo.addRow(new Object[]{
+                listacat.get(i).getIDCliente(),
+                listacat.get(i).getNombre(),
+                listacat.get(i).getApellidos(),
+                listacat.get(i).getTelefono()
+                
+            });
+        }
+    }
+       public void limpiarTabla() {
+       int fila = tblRegistroClien.getRowCount();
+        for (int i = 0; i < fila; i++) {
+            modelo.removeRow(0);
+        }
+        
+    }
+        private void PonerEncabezados() {
+        modelo.addColumn("id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("telefono");
+       
+        
+    }
     public AgregarCliente() {
         initComponents();
+        PonerEncabezados();
+        LlenarTabla();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +76,7 @@ public class AgregarCliente extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegistroClien = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -82,8 +115,18 @@ public class AgregarCliente extends javax.swing.JFrame {
         jLabel4.setText("Telefono:");
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Limpiar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +147,13 @@ public class AgregarCliente extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tblRegistroClien);
+
+        jButton4.setText("Actualizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Inicio");
 
@@ -151,7 +201,8 @@ public class AgregarCliente extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addComponent(jButton2)
-                            .addComponent(jButton3)))
+                            .addComponent(jButton3)
+                            .addComponent(jButton4)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 15, Short.MAX_VALUE))
         );
@@ -177,7 +228,8 @@ public class AgregarCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -198,6 +250,72 @@ Menu m = new Menu();
         this.apellido.setText("");
         this.telefono.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       String nu = null ;
+       ClienteVO cli = new ClienteVO();
+       
+        cli.setIDCliente(Integer.parseInt(nu));
+     
+      cli.setNombre(this.nombre.getText());
+      cli.setApellidos(this.nombre.getText());
+     cli.setTelefono(this.telefono.getText());
+     
+      
+        System.out.println(cli.getIDCliente()+cli.getNombre()+cli.getApellidos()+
+                cli.getTelefono());
+        if (new CtrlCliente().Insertar(cli)) {
+            JOptionPane.showMessageDialog(this,"Se agrego correctamente");
+        }else{
+            JOptionPane.showMessageDialog(this, "Se Produjo un error");
+        }
+        limpiarTabla();
+        LlenarTabla();
+                           
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int fila = tblRegistroClien.getSelectedRow();
+       
+       ClienteVO cli = new ClienteVO();
+       cli.setIDCliente((int) tblRegistroClien.getValueAt(fila, 0));
+       CtrlCliente ctr = new CtrlCliente();
+       int resp  = JOptionPane.showConfirmDialog(this,"Esta Seguro?","Alerta",JOptionPane.YES_OPTION);
+        if (resp == 0) {
+            if (ctr.eliminar(cli)) {
+            limpiarTabla();
+            LlenarTabla();
+            JOptionPane.showMessageDialog(this, "Se elimino correctamente");
+            }else{
+            JOptionPane.showMessageDialog(this, "No se elimino 'Problema de Relacion'");
+            
+                    
+        }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+          String nu = null;
+       ClienteVO cli = new ClienteVO();
+       
+       cli.setIDCliente(Integer.parseInt(nu));
+      cli.setNombre(this.nombre.getText());
+      cli.setApellidos(this.apellido.getText());
+      
+      cli.setTelefono(this.telefono.getText());
+    
+      
+        if (new CtrlCliente().actualizar(cli)) {
+            limpiarTabla();
+            LlenarTabla();
+            JOptionPane.showMessageDialog(this, "Se actualizo Correctamente");
+        }else{
+            JOptionPane.showMessageDialog(this, "No se Actualizo");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +358,7 @@ Menu m = new Menu();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

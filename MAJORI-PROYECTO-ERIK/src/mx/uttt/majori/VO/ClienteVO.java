@@ -22,6 +22,10 @@ public class ClienteVO {
         this.Telefono = Telefono;
     }
 
+    public ClienteVO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @return the IDCliente
      */
@@ -76,6 +80,14 @@ public class ClienteVO {
      */
     public void setTelefono(String Telefono) {
         this.Telefono = Telefono;
+    }
+
+    public void setInt(int i, int idCliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setString(int i, String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
