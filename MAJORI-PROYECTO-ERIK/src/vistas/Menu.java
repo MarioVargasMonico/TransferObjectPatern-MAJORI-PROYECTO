@@ -35,7 +35,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         Salir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        MenuCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,13 +93,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Archivo");
 
-        jMenuItem1.setText("Agregar Cliente");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        MenuCliente.setText("Agregar Cliente");
+        MenuCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                MenuClienteActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(MenuCliente);
 
         jMenuBar1.add(jMenu2);
 
@@ -124,14 +124,14 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-AgregarCliente ag = new AgregarCliente();    
-    this.hide();
-    ag.setVisible(true);         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void MenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClienteActionPerformed
+        AgregarCliente ag = new AgregarCliente();    
+        this.hide();
+        ag.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_MenuClienteActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-  System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_SalirActionPerformed
 
     /**
@@ -171,13 +171,13 @@ AgregarCliente ag = new AgregarCliente();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuCliente;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

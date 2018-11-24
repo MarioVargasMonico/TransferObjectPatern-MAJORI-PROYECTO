@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Ricardo Hiram
  */
 
-    public interface IOperaciones<Generico> {
+    public interface IOperaciones<Generico>{
     boolean Insertar(Generico obj);
     boolean eliminar (Generico obj);
     boolean actualizar (Generico obj);
