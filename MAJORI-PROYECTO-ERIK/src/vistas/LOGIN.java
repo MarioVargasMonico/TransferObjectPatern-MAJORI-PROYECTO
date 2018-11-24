@@ -14,7 +14,7 @@ import sun.security.util.Password;
 
 /**
  *
- * @author jesus
+ * @author MAJORI
  */
 public class LOGIN extends javax.swing.JFrame {
 
