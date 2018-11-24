@@ -5,19 +5,21 @@
  */
 package vistas;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ricardo Hiram
  */
 public class AgregarCliente extends javax.swing.JFrame {
-
+    
+    DefaultTableModel modelo = new  DefaultTableModel();
     /**
      * Creates new form AgregarCliente
      */
     public AgregarCliente() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +43,7 @@ public class AgregarCliente extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblRegistroClien = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -90,7 +92,7 @@ public class AgregarCliente extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRegistroClien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -101,7 +103,7 @@ public class AgregarCliente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblRegistroClien);
 
         jMenu1.setText("Inicio");
 
@@ -248,8 +250,8 @@ Menu m = new Menu();
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nombre;
+    private javax.swing.JTable tblRegistroClien;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 }
