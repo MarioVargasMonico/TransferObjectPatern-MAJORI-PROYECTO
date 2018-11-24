@@ -49,8 +49,8 @@ public class AgregarCliente extends javax.swing.JFrame {
     }
     public AgregarCliente() {
         initComponents();
-        PonerEncabezados();
-        LlenarTabla();
+        //PonerEncabezados();
+        //LlenarTabla();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,7 +71,7 @@ public class AgregarCliente extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         apellido = new javax.swing.JTextField();
         telefono = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BtnAgregar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -114,10 +114,10 @@ public class AgregarCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Telefono:");
 
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnAgregarActionPerformed(evt);
             }
         });
 
@@ -199,7 +199,7 @@ public class AgregarCliente extends javax.swing.JFrame {
                                     .addComponent(apellido, javax.swing.GroupLayout.Alignment.LEADING))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(BtnAgregar)
                             .addComponent(jButton2)
                             .addComponent(jButton3)
                             .addComponent(jButton4)))
@@ -214,7 +214,7 @@ public class AgregarCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(BtnAgregar))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -225,12 +225,16 @@ public class AgregarCliente extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jButton4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -239,41 +243,39 @@ public class AgregarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-Menu m = new Menu();    
-    this.hide();
-    m.setVisible(true);         // TODO add your handling code here:
+      //Menu m = new Menu();    
+    //this.hide();
+     //m.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
- this.cliente.setText("");
+        this.cliente.setText("");
         this.nombre.setText("");
         this.apellido.setText("");
         this.telefono.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
-       String nu = null ;
-       ClienteVO cli = new ClienteVO();
+        String nu = null;
+        ClienteVO cli = new ClienteVO();
+
+        //cli.setIDCliente(Integer.parseInt(nu));
+        cli.setNombre(this.nombre.getText());
+        cli.setApellidos(this.apellido.getText());
+        cli.setTelefono(this.telefono.getText());
+
        
-        cli.setIDCliente(Integer.parseInt(nu));
-     
-      cli.setNombre(this.nombre.getText());
-      cli.setApellidos(this.nombre.getText());
-     cli.setTelefono(this.telefono.getText());
-     
-      
-        System.out.println(cli.getIDCliente()+cli.getNombre()+cli.getApellidos()+
-                cli.getTelefono());
+
         if (new CtrlCliente().Insertar(cli)) {
-            JOptionPane.showMessageDialog(this,"Se agrego correctamente");
-        }else{
+            JOptionPane.showMessageDialog(this, "Se agrego correctamente");
+        } else {
             JOptionPane.showMessageDialog(this, "Se Produjo un error");
         }
-        limpiarTabla();
-        LlenarTabla();
+        //limpiarTabla();
+        //LlenarTabla();
                            
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -353,9 +355,9 @@ Menu m = new Menu();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAgregar;
     private javax.swing.JTextField apellido;
     private javax.swing.JTextField cliente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
