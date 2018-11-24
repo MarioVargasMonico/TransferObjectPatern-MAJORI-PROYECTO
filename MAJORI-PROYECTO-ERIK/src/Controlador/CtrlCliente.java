@@ -35,7 +35,8 @@ public class CtrlCliente implements IOperaciones<ClienteVO>{
 
     @Override
     public ArrayList<ClienteVO> consultar(ClienteVO obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ///throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
    
