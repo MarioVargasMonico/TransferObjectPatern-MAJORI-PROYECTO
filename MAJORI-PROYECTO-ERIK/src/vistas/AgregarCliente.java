@@ -5,7 +5,9 @@
  */
 package vistas;
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import mx.uttt.majori.VO.ClienteVO;
 
 /**
  *
@@ -20,6 +22,22 @@ public class AgregarCliente extends javax.swing.JFrame {
     public AgregarCliente() {
         initComponents();
     }
+    
+    
+    public void llenarTabla(){
+    tblRegistroClien.setModel(modelo);
+    modelo.setColumnIdentifiers(new String[]{"ID","NOMBRE","APELLIDOS","TELEFONO"});
+        ClienteVO c = new ClienteVO(WIDTH, Nombre, Apellidos, Telefono);
+        ArrayList<ClienteVO> lista = (ArrayList<ClienteVO>());
+        for (int i = 0;lista.size()< 10; i++) {
+            modelo.addRow(new Object[]{
+        lista.get(i).getIDCliente(),
+        lista.get(i).getNombre(),
+        lista.get(i).getApellidos(),
+        lista.get(i).getTelefono()   
+        });
+        }
+            }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
