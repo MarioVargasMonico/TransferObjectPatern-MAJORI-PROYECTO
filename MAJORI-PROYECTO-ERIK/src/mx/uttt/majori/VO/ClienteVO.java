@@ -15,27 +15,35 @@ public class ClienteVO {
     private String Apellidos;
     private String Telefono;
 
-    public ClienteVO(int IDCiente, String Nombre, String Apellidos, String Telefono) {
+    public ClienteVO(int IDCliente, String Nombre, String Apellidos, String Telefono) {
         this.IDCliente = IDCliente;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.Telefono = Telefono;
     }
+    public ClienteVO() {
+        
+    }
 
+    public ClienteVO(String Nombre, String Apellidos, String Telefono) {
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.Telefono = Telefono;
+    }
+    
+    
     /**
      * @return the IDCliente
      */
     public int getIDCliente() {
         return IDCliente;
     }
-
     /**
      * @param IDCliente the IDCliente to set
      */
     public void setIDCliente(int IDCliente) {
         this.IDCliente = IDCliente;
     }
-
     /**
      * @return the Nombre
      */
@@ -77,5 +85,6 @@ public class ClienteVO {
     public void setTelefono(String Telefono) {
         this.Telefono = Telefono;
     }
+   
 
 }
