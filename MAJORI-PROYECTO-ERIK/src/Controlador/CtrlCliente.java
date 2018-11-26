@@ -33,11 +33,7 @@ public class CtrlCliente implements IOperaciones<ClienteVO>{
         return new ClienteBO().consultarTodo();
     }
 
-    @Override
-    public ArrayList<ClienteVO> consultar(ClienteVO obj) {
-        ///throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return null;
-    }
+    
 
    
     
