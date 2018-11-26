@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: majori
+-- Host: localhost    Database: majori_cliente
 -- ------------------------------------------------------
 -- Server version	5.6.25-log
 
@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cliente` (
-  `IDClie` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellidos` varchar(50) NOT NULL,
-  `Telefono` int(15) NOT NULL,
-  PRIMARY KEY (`IDClie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `IDCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellidos` varchar(45) NOT NULL,
+  `Telefono` varchar(10) NOT NULL,
+  PRIMARY KEY (`IDCliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Armando','Calles','7739845677'),(2,'Elma','Carron','7736985422'),(3,'Karlos','Rosado de Anoche','7736487128'),(4,'Elver','Galarga','7737845732'),(5,'x','q','4235'),(6,'fg','sdfghj','12345'),(7,'qwertyui','wertyuio','123456'),(8,'wertyu','wertyui','2345678'),(9,'qwertyuio','wertyuio','56789'),(10,'cgvhbjk','hbvvvb','9988878'),(11,'fghjkn','sdfghj','56789'),(12,'pepe','juarez','77817293'),(13,'papa','jashjashdkaj','884775844'),(14,'ertyuiop','ertyjk','098765'),(15,'hdfghj','hfghjjh','hgfgh'),(16,'ertyui','iuytfghj','56789'),(17,'fghjk','jhghj','76789');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-23 10:09:23
+-- Dump completed on 2018-11-25 22:07:13
