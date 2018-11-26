@@ -17,7 +17,7 @@ import java.util.ArrayList;
     boolean eliminar (Generico obj);
     boolean actualizar (Generico obj);
     ArrayList<Generico>consultarTodo();
-     ArrayList<Generico>consultar(Generico obj);
+   
 }
     
 
