@@ -16,6 +16,7 @@ import mx.uttt.majori.bu.ClienteBO;
 /**
  *
  * @author Ricardo Hiram
+ * 
  */
 public class AgregarCliente extends javax.swing.JFrame {
     
